@@ -1,0 +1,15 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import root.Message;
+
+public class MessageTest {
+
+	@Test
+	public void createsAMessage() {
+		Message mensaje = new Message("Hola");
+		assertEquals("Hola", mensaje.getText());	
+	}
+
+}
