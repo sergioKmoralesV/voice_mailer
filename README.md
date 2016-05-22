@@ -6,7 +6,7 @@ Application designed in Java.
     Eclipse Mars1.0
 
 ## Authors: 
-    - Brandon Quiroga
-    - Sergio Morales
+    Brandon Quiroga
+    Sergio Morales
 
-Universidad Católica Boliviana "San Pablo"
+> Universidad Católica Boliviana "San Pablo"
