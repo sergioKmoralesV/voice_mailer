@@ -2,10 +2,10 @@
 
 Application designed in Java.
 
-# IDE: 
+## IDE: 
     Eclipse Mars1.0
 
-# Authors: 
+## Authors: 
     - Brandon Quiroga
     - Sergio Morales
 
