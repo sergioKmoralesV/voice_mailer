@@ -9,4 +9,4 @@ Application designed in Java.
     Brandon Quiroga
     Sergio Morales
 
-> Universidad Católica Boliviana "San Pablo"
+###### Universidad Católica Boliviana "San Pablo"
