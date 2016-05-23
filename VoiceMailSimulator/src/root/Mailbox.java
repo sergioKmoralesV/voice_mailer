@@ -130,6 +130,9 @@ public class Mailbox
 	   }
 	   return output;
    }
+   public void deleteContact(Contact contactToDelete){
+	   contacts.remove(contactToDelete);
+   }
    
    public void addContact(Contact newContact)
    {

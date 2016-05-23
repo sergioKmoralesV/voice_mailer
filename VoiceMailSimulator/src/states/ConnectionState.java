@@ -1,6 +1,5 @@
 package states;
 import root.Connection;
-import root.Contact;
 import root.UIMessages;
 
 public interface ConnectionState {

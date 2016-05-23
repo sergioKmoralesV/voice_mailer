@@ -2,10 +2,8 @@ package states;
 
 import root.Connection;
 import root.Contact;
-import root.Mailbox;
 
 public class EditContactLastNameState implements ConnectionState {
-	private Mailbox currentMailbox;
 	private Contact actualContact;
 
 	@Override
@@ -16,7 +14,6 @@ public class EditContactLastNameState implements ConnectionState {
 
 	@Override
 	public ConnectionState record(String text, Connection actualConnection) {
-		currentMailbox = actualConnection.getMailbox();
 		actualContact.setNewLastname(text);
 		String output = "\nContact's changes saved!\n\n";
 		output += actualContact.getContact() + "\n\n" + messages.EDIT_CONTACT_MENU; 

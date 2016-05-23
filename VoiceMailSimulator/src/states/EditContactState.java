@@ -33,12 +33,18 @@ public class EditContactState implements ConnectionState {
 	      }
 	      else if (key.equals("4"))
 	      {
-	         
+	         String output = "Are you sure you want to delete this contact?\n "
+	        		 + "1 [Yes]\n2 [No]\n" ;
+	         actualConnection.speakToAllUIs(output);
+	         DeleteContactState nextState = new DeleteContactState();
+	    	  nextState.setActualContact(this.actualContact);
+	    	  return nextState;
 	      }
-	      else
-	      {
-	    	 
-	      }
+	      else  if( key.equals("5"))
+		   {
+	    	  actualConnection.speakToAllUIs(messages.CONTACT_MENU_TEXT);
+		   	  return new ContactMenuState();
+		   }
 	     return this;
 	}
 

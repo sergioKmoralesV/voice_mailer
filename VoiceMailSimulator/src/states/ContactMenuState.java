@@ -29,10 +29,6 @@ public class ContactMenuState implements ConnectionState{
 	         actualConnection.speakToAllUIs(messages.MAILBOX_MENU_TEXT);
 	         return new MailboxState();
 	      }
-	      else
-	      {
-	    	  actualConnection.speakToAllUIs(key);
-	      }
 	     return this;
 	}
 	

@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.UserInterface;
-import states.ChangeGreetingState;
 import states.ConnectedState;
 import states.ConnectionState;
 import states.RecordingState;
