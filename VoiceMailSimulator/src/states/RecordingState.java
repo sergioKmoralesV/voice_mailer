@@ -19,5 +19,10 @@ public class RecordingState implements ConnectionState{
 		
 		return this;
 	}
+	public ConnectionState record(String text, Connection actualConnection ){
+		actualConnection.addToRecording(text);
+		return this;
+	}
+
 }
 

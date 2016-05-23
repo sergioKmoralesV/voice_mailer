@@ -27,4 +27,8 @@ public class MailboxState implements ConnectionState{
 	      return this;
 	  }
 
+	public ConnectionState record(String text, Connection actualConnection ){
+		return this;
+
+	}
 }

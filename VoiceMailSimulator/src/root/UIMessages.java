@@ -18,6 +18,11 @@ public class UIMessages {
 			  +"Enter 2 to create a new contact\n"
 			  +"Enter 3 to select a contact\n"
 			  +"Enter 4 to return to main menu.";
+	   
+	   public String CREATE_CONTACT_MENU = ""
+	   		+ "Enter your contact information following the next format:\n"
+			+ "FirstName, LastName, TelephoneNumber";
+	   
 	   public String INCORRECT_PASSCODE = "Incorrect passcode. Try again!";
 	   public String INCORRECT_MAILBOX = "Incorrect mailbox number. Try again!";
 }

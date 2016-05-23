@@ -14,5 +14,8 @@ public class ChangePasscodeState implements ConnectionState{
 		         actualConnection.updateAccumulatedKeys(key,false);
 		return this;
 	}
+	public ConnectionState record(String text, Connection actualConnection ){
+		return this;
+	}
 
 }

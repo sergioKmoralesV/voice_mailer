@@ -26,7 +26,6 @@ public class Mailbox
       newMessages = new MessageQueue();
       keptMessages = new MessageQueue();
   	  contacts = new ArrayList<Contact>();	   
-
    }
 
    /**
@@ -111,5 +110,18 @@ public class Mailbox
    public String getGreeting()
    {
       return greeting;
+   }
+   
+   public void getContactList()
+   {
+	   for(Contact contact: contacts)
+	   {
+		   
+	   }
+   }
+   
+   public void addContact(Contact newContact)
+   {
+	   contacts.add(newContact);
    }
 }

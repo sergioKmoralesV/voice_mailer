@@ -81,10 +81,12 @@ public class Connection
    */
    public void record(String voice)
    {
-      if (status instanceof RecordingState  || status instanceof ChangeGreetingState)
-         currentRecording += voice;
+	  status = status.record(voice,this);
    }
-
+   
+   public void addToRecording(String text){
+       currentRecording += text;
+   }
    /**
       The user hangs up the phone.
    */

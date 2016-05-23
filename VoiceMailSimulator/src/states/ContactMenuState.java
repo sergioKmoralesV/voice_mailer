@@ -5,17 +5,14 @@ public class ContactMenuState implements ConnectionState{
 	public ConnectionState dial(String key, Connection actualConnection){
 	      if (key.equals("1"))
 	      {
-	         /** String output = "";
-	         Message m = currentMailbox.getCurrentMessage();
-	         if (m == null) output += "No messages." + "\n";
-	         else output += m.getText() + "\n";
-	         output += messages.MESSAGE_MENU_TEXT;
-	         speakToAllUIs(output);*/
+	         
 	      }
 	      else if (key.equals("2"))
 	      {
-	         /** currentMailbox.saveCurrentMessage();
-	         speakToAllUIs(messages.MESSAGE_MENU_TEXT);*/
+	    	  String output = "";
+		      output += messages.CREATE_CONTACT_MENU;
+		      actualConnection.speakToAllUIs(output);
+		      return new CreateContactState();
 	      }
 	      else if (key.equals("3"))
 	      {
@@ -27,6 +24,15 @@ public class ContactMenuState implements ConnectionState{
 	         actualConnection.speakToAllUIs(messages.MAILBOX_MENU_TEXT);
 	         return new MailboxState();
 	      }
+	      else
+	      {
+	    	  actualConnection.speakToAllUIs(key);
+	      }
 	     return this;
 	}
+	
+	public ConnectionState record(String text, Connection actualConnection ){
+		return this;
+	}
+
 }

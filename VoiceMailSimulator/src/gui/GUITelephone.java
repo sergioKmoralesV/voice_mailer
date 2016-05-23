@@ -1,34 +1,28 @@
 package gui;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import root.Connection;
 
-import javax.swing.JScrollPane;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.JLabel;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.util.Scanner;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.UIManager;
-import javax.swing.SwingConstants;
-
 public class GUITelephone extends JFrame implements UserInterface {
 
-	/**
-	 * 
-	 */
+
 	private JPanel contentPane;
 	private static JTextField inputTextField;
 	private JLabel labelForTextInput;
@@ -188,18 +182,6 @@ public class GUITelephone extends JFrame implements UserInterface {
 							.addGap(127)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(number4, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-									.addGap(12)
-									.addComponent(number5, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-									.addGap(12)
-									.addComponent(number6, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(number1, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(number2, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(number3, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addComponent(number7, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
@@ -217,7 +199,20 @@ public class GUITelephone extends JFrame implements UserInterface {
 									.addComponent(button_hang_up, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
 									.addGap(13)
 									.addComponent(button_accept, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-									.addGap(2))))
+									.addGap(2))
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(number1, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addComponent(number2, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addComponent(number3, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(number4, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+										.addGap(12)
+										.addComponent(number5, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+										.addGap(12)
+										.addComponent(number6, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)))))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(85)
 							.addComponent(inputTextField, GroupLayout.PREFERRED_SIZE, 255, GroupLayout.PREFERRED_SIZE))
@@ -227,23 +222,23 @@ public class GUITelephone extends JFrame implements UserInterface {
 					.addContainerGap(71, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(18)
 					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(inputTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(number2, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
 						.addComponent(number3, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
 						.addComponent(number1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
-					.addGap(15)
+					.addGap(9)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(number4, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
 						.addComponent(number5, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
 						.addComponent(number6, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(number7, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
 						.addComponent(number8, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
@@ -257,7 +252,7 @@ public class GUITelephone extends JFrame implements UserInterface {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(button_hang_up, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
 						.addComponent(button_accept, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
+					.addGap(18))
 		);
 		
 		labelForTextInput = new JLabel("<html>\n\t<center>\n\t\tEnter mailbox number followed by #\n\t</center>\n</html>");

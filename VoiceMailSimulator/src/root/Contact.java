@@ -14,4 +14,10 @@ public class Contact {
 	public String getContact(){
 		return lastname + ", " + name + " - " + phone;
 	}
+	
+	public void editContact(String name, String lastname, String phone){
+		this.name = name;
+		this.lastname = lastname;
+		this.phone = phone;
+	}
 }
