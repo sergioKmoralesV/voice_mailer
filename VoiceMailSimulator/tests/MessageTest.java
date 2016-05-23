@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import root.Message;
+import core.Message;
 
 public class MessageTest {
 

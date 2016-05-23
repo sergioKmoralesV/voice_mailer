@@ -1,7 +1,7 @@
 package gui;
 import java.util.Scanner;
 
-import root.Connection;
+import core.Connection;
 
 /**
    A telephone that takes simulated keystrokes and voice input

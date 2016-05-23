@@ -2,8 +2,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import root.Mailbox;
-import root.Message;
+import core.Mailbox;
+import core.Message;
 
 public class MailboxTest {
 

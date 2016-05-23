@@ -2,8 +2,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import root.Message;
-import root.MessageQueue;
+import core.Message;
+import core.MessageQueue;
 
 public class MessageQueueTest {
 

@@ -18,7 +18,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import root.Connection;
+import core.Connection;
 
 public class GUITelephone extends JFrame implements UserInterface {
 

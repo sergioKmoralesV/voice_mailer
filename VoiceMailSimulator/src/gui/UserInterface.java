@@ -1,5 +1,5 @@
 package gui;
-import root.Connection;
+import core.Connection;
 
 public interface UserInterface {
 	

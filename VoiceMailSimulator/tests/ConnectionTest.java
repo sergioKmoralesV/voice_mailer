@@ -6,13 +6,13 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import core.Connection;
+import core.MailSystem;
+import core.Mailbox;
+import core.Message;
+import core.UIMessages;
 import gui.Telephone;
 import gui.UserInterface;
-import root.Connection;
-import root.MailSystem;
-import root.Mailbox;
-import root.Message;
-import root.UIMessages;
 
 public class ConnectionTest {
 
