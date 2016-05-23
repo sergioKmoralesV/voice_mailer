@@ -5,7 +5,7 @@ public class ContactMenuState implements ConnectionState{
 	public ConnectionState dial(String key, Connection actualConnection){
 	      if (key.equals("1"))
 	      {
-	    	  String output = " \n" + actualConnection.getMailbox().getContactList() + " \n" + messages.CONTACT_MENU_TEXT;
+	    	  String output = " \n" + actualConnection.getMailbox().getContactList() + "\n" + messages.CONTACT_MENU_TEXT;
 	    	  actualConnection.speakToAllUIs(output);
 	      }
 	      else if (key.equals("2"))
@@ -17,8 +17,12 @@ public class ContactMenuState implements ConnectionState{
 	      }
 	      else if (key.equals("3"))
 	      {
-	         /**currentMailbox.removeCurrentMessage();
-	         speakToAllUIs(messages.MESSAGE_MENU_TEXT);*/
+	    	  String output;
+		  	  output = " \n" + actualConnection.getMailbox().getContactList() + " \n" + 
+		  			  "Please, enter the number corresponding \n to the contact want to you select"; 
+		  	  actualConnection.speakToAllUIs(output);
+	    	  return new SelectedContactMenu();
+	    	  
 	      }
 	      else if (key.equals("4"))
 	      {

@@ -114,12 +114,19 @@ public class Mailbox
    
    public String getContactList()
    {
+	   
 	   String output = "";
-	   int i = 1;
-	   for(Contact contact: contacts)
+	   if(contacts.size() > 0){
+		   int i = 1;
+		   for(Contact contact: contacts)
+		   {
+			  output += i+") "+ contact.getContact()+"\n";
+			  i++;
+		   }
+	   }
+	   else
 	   {
-		  output += i+") "+ contact.getContact()+"\n";
-		  i++;
+		   output="You have no contacts added!\n";
 	   }
 	   return output;
    }
@@ -128,5 +135,11 @@ public class Mailbox
    {
 	   contacts.add(newContact);
    }
-
+   
+   public Contact getContactFromList(int index)
+   {
+	   if(index<=contacts.size() && index>0)
+		   return contacts.get(index-1);
+	   return null;
+   }
 }
