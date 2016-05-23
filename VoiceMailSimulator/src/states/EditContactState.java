@@ -18,10 +18,18 @@ public class EditContactState implements ConnectionState {
 	      else if (key.equals("2"))
 	      {
 	    	 String output = "Enter the new contact last name";
+	    	 actualConnection.speakToAllUIs(output);
+	    	 EditContactLastNameState nextState = new EditContactLastNameState();
+	    	 nextState.setActualContact(this.actualContact);
+	    	 return nextState;
 	      }
 	      else if (key.equals("3"))
 	      {
 	    	  String output = "Enter the new contact number";
+	    	  actualConnection.speakToAllUIs(output);
+	    	  EditContactPhoneState nextState = new EditContactPhoneState();
+	    	  nextState.setActualContact(this.actualContact);
+	    	  return nextState;
 	      }
 	      else if (key.equals("4"))
 	      {

@@ -25,7 +25,7 @@ public class UIMessages {
 	   public String EDIT_CONTACT_MENU = "" 
 			+ "Enter 1 to edit contact name\n" 
 			+ "Enter 2 to edit contact last name\n"
-			+ "Enter 3 to edit contatc telephone number\n"
+			+ "Enter 3 to edit contact telephone number\n"
 			+ "Enter 4 to delete contact\n"
 			+ "Enter 5 to return to contact menu\n";
 	   public String INCORRECT_PASSCODE = "Incorrect passcode. Try again!";
