@@ -112,16 +112,21 @@ public class Mailbox
       return greeting;
    }
    
-   public void getContactList()
+   public String getContactList()
    {
+	   String output = "";
+	   int i = 1;
 	   for(Contact contact: contacts)
 	   {
-		   
+		  output += i+") "+ contact.getContact()+"\n";
+		  i++;
 	   }
+	   return output;
    }
    
    public void addContact(Contact newContact)
    {
 	   contacts.add(newContact);
    }
+
 }
