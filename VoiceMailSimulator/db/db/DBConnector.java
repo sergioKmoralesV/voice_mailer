@@ -130,14 +130,27 @@ public class DBConnector {
 		        	 break;
 		         String passcode = results.getString("password");
 		         String greeting = results.getString("greeting_message");
-		         mailboxes.add(new Mailbox(passcode, greeting));
+		         mailboxes.add(new Mailbox(id,passcode, greeting));
 		      }
 		      results.close();
 		      return mailboxes;
 	     }catch(SQLException e){
 	    	 return new ArrayList<Mailbox>();
 	     }
-	      
+	}
+	
+	public void saveMailbox(int number, String password, String greeting){
+		Connection conn = null;
+		try{
+			conn = this.getConnection();
+			String updateString =
+			        "UPDATE Mailbox SET password = '" + password + "', "
+			        +"greeting_message = '"+ greeting +"'"
+			        		+ "WHERE number = " + Integer.toString(number) +";"; 
+			this.executeUpdate(conn, updateString);
+		}catch (SQLException e){
+			
+		}
 	}
 	public void createMailbox(int number, String password, String greeting){
 		Connection conn = null;
@@ -152,7 +165,6 @@ public class DBConnector {
 		}catch (SQLException e){
 			
 		}
-		
 	}
 
 }

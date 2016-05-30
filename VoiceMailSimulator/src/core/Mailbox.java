@@ -2,6 +2,8 @@ package core;
 import java.util.ArrayList;
 import java.util.List;
 
+import db.DBConnector;
+
 /**
    A mailbox contains messages that can be listed, kept or discarded.
 */
@@ -17,10 +19,14 @@ public class Mailbox
 	private MessageQueue keptMessages;
 	private String greeting;
 	private String passcode;
-	private List<Contact> contacts;	   
+	private List<Contact> contacts;	  
+	private DBConnector conn;
+	private int number;
 
-   public Mailbox(String aPasscode, String aGreeting)
+
+   public Mailbox(int aNumber, String aPasscode, String aGreeting)
    {
+	  number = aNumber;
       passcode = aPasscode;
       greeting = aGreeting;
       newMessages = new MessageQueue();
@@ -91,6 +97,8 @@ public class Mailbox
    */
    public void setGreeting(String newGreeting)
    {
+	  conn = new DBConnector();
+	  conn.saveMailbox(number, passcode, newGreeting);
       greeting = newGreeting;
    }
 
@@ -100,7 +108,10 @@ public class Mailbox
    */
    public void setPasscode(String newPasscode)
    {
+	  conn = new DBConnector();
+	  conn.saveMailbox(number, newPasscode, greeting);
       passcode = newPasscode;
+      
    }
 
    /**

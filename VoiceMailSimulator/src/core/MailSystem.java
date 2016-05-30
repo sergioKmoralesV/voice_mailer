@@ -29,7 +29,7 @@ public class MailSystem
              String greeting = "You have reached mailbox " + (i + 1)
                    + ". \nPlease leave a message now.";
         	 conn.createMailbox(i+1, passcode, greeting);
-             mailboxes.add(new Mailbox(passcode, greeting));
+             mailboxes.add(new Mailbox(i+1,passcode, greeting));
           }  
       }
    }
