@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import core.Mailbox;
+import core.Message;
+import core.MessageQueue;
 
 /**
  * This class demonstrates how to connect to MySQL and run some basic commands.
@@ -59,8 +61,6 @@ public class DBConnector {
 	/** The name of the database we are testing with (this default is installed with MySQL) */
 	private final String dbName = "voice_mail";
 	
-	/** The name of the table we are testing with */
-	private final String tableName = "JDBC_TEST";
 	
 	/**
 	 * Get a new database connection
@@ -166,5 +166,71 @@ public class DBConnector {
 			
 		}
 	}
+	
+	public int createMessage(int mailBoxNumber, String message){
+		Connection conn = null;
+		try{
+			conn = this.getConnection();
+			String createString =
+			        "INSERT INTO Message (text, status, mailbox_id) VALUES  ('" 
+			        			+ message +"', '"
+			        			+ "NEW" + "', " 
+			        			+ Integer.toString(mailBoxNumber) +");"; 
+			this.executeUpdate(conn, createString);
+			String getLastId = "SELECT MAX(id) as id FROM Message WHERE mailbox_id = "
+						+Integer.toString(mailBoxNumber)+";";
+			ResultSet results = this.getRecords(getLastId);
+			results.next();
+			int lastId = results.getInt("id");
+			return lastId;
+			}catch (SQLException e){
+			
+		}
+		return -1;
+	}
+	
+	public ArrayList<Message> getMessages(int number, String status){
+		String sql = "SELECT id, text, status  FROM Message WHERE mailbox_id = "+Integer.toString(number)
+					+" AND status = '"+status+"' ORDER BY id DESC;";
+		 try{ 
+			 ArrayList<Message> messages = new ArrayList<Message>();
+				ResultSet results = this.getRecords(sql);
+				while(results.next()){
+			         //Retrieve by column name
+			         Message newMessage  = new Message(results.getString("text"));
+			         newMessage.setId(results.getInt("id"));
+			         messages.add(newMessage);
+			      }
+			      results.close();
+			      return messages;
+		     }catch(SQLException e){
+		    	 return new ArrayList<Message>();
+		     }
+	}
+	public void saveMessage(int id, String text,String status){
+		Connection conn = null;
+		try{
+			conn = this.getConnection();
+			String updateString =
+			        "UPDATE Message SET text = '" + text + "', "
+			        +"status = '"+ status +"'"
+			        + "WHERE id = " + Integer.toString(id) +";"; 
+			this.executeUpdate(conn, updateString);
+		}catch (SQLException e){
+			
+		}
+	}
 
+	public void deleteMessage(int id) {
+		Connection conn = null;
+		try{
+			conn = this.getConnection();
+			String updateString =
+			        "DELETE FROM Message " 
+			        + "WHERE id = " + Integer.toString(id) +";"; 
+			this.executeUpdate(conn, updateString);
+		}catch (SQLException e){
+			
+		}
+	}
 }

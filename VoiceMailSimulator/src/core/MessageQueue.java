@@ -1,6 +1,8 @@
 package core;
 import java.util.ArrayList;
 
+import db.DBConnector;
+
 /**
    A first-in, first-out collection of messages. This
    implementation is not very efficient. We will consider
@@ -27,13 +29,24 @@ public class MessageQueue
 
    /**
       Append message at tail.
-      @param newMessage the message to be appended
+ * @param mailboxNumber 
+ * @param newMessage the message to be appended
    */
-   public void add(Message newMessage)
+   public void add(int mailboxNumber, Message newMessage)
    {
-      queue.add(newMessage);
+	  DBConnector conn = new DBConnector();
+	  int id = conn.createMessage(mailboxNumber, newMessage.getText());
+      newMessage.setId(id);
+	  queue.add(newMessage);
    }
-
+   
+   public void addWithoutCreatingInDB(int MailboxNumber, Message newMessage){
+	   
+	   queue.add(newMessage);
+   }
+   public void setQueue(ArrayList<Message> queue){
+	   this.queue = queue;
+   }
    /**
       Get the total number of messages in the queue.
       @return the total number of messages in the queue

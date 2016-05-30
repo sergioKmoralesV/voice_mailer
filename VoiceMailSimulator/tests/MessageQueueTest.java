@@ -18,7 +18,7 @@ public class MessageQueueTest {
 	public void addsOneElementToTheMessageQueue(){
 		MessageQueue queue= new MessageQueue();
 		Message new_message= new Message("Hola Mundo");
-		queue.add(new_message);
+		queue.add(0, new_message);
 		assertEquals(1,queue.size());
 		assertNotEquals(null, queue.peek());
 	}
@@ -27,8 +27,8 @@ public class MessageQueueTest {
 	public void deletesOneElementFromQueue(){
 		MessageQueue queue= new MessageQueue();
 		Message new_message= new Message("Hola Mundo");
-		queue.add(new_message);
-		queue.add(new_message);
+		queue.add(0, new_message);
+		queue.add(0, new_message);
 		assertEquals(2,queue.size());
 		queue.remove();
 		assertEquals(1,queue.size());

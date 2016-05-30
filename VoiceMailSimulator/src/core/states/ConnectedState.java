@@ -7,7 +7,7 @@ public class ConnectedState implements ConnectionState{
 	public ConnectionState dial(String key, Connection actualConnection){
 		if (key.equals("#"))
 	      {
-	        currentMailbox = actualConnection.getMailbox();
+	        currentMailbox = actualConnection.setMailbox();
 	         if (currentMailbox != null)
 	         {
 	            actualConnection.speakToAllUIs(currentMailbox.getGreeting());

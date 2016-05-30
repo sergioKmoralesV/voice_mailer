@@ -26,11 +26,14 @@ public class Mailbox
 
    public Mailbox(int aNumber, String aPasscode, String aGreeting)
    {
+	  conn = new DBConnector();
 	  number = aNumber;
       passcode = aPasscode;
       greeting = aGreeting;
       newMessages = new MessageQueue();
       keptMessages = new MessageQueue();
+      newMessages.setQueue(conn.getMessages(aNumber, "NEW"));
+      keptMessages.setQueue(conn.getMessages(aNumber, "SAVED"));
   	  contacts = new ArrayList<Contact>();	   
    }
 
@@ -50,7 +53,7 @@ public class Mailbox
    */
    public void addMessage(Message aMessage)
    {
-      newMessages.add(aMessage);
+      newMessages.add(number,aMessage);
    }
 
    /**
@@ -81,14 +84,25 @@ public class Mailbox
          return null;
    }
 
+   public void deleteCurrentMessage()
+   {
+	  Message m= new Message("");
+      if (newMessages.size() > 0)
+         m = newMessages.remove();
+      else if (keptMessages.size() > 0)
+         m = keptMessages.remove();
+     conn.deleteMessage(m.getId());
+   }
    /**
       Save the current message
    */
    public void saveCurrentMessage()
    {
       Message m = removeCurrentMessage();
-      if (m != null)
-         keptMessages.add(m);
+      if (m != null){
+          keptMessages.addWithoutCreatingInDB(number, m);
+          conn.saveMessage(m.getId(), m.getText(), "SAVED");
+      }
    }
 
    /**

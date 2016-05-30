@@ -43,8 +43,12 @@ public class Connection
 		   userInterfaces.add(ui);
 	   }
 
-	   public Mailbox getMailbox(){
+	   public Mailbox setMailbox(){
 		   currentMailbox = system.findMailbox(accumulatedKeys);
+		   return currentMailbox;
+	   }
+	   
+	   public Mailbox getMailbox(){
 		   return currentMailbox;
 	   }
 	   

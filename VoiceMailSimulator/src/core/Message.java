@@ -21,6 +21,15 @@ public class Message
    {
       return text;
    }
-
+   
+   public int getId(){
+	   return id;
+   }
+   
+   public void setId(int dbMessageId)
+   {
+	   id = dbMessageId;
+   }
    private String text;
+   private int id;
 }

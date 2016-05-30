@@ -24,7 +24,7 @@ public class MessageMenuState implements ConnectionState{
 	      }
 	      else if (key.equals("3"))
 	      {
-	         currentMailbox.removeCurrentMessage();
+	    	 currentMailbox.deleteCurrentMessage();
 	         actualConnection.speakToAllUIs(messages.MESSAGE_MENU_TEXT);
 	      }
 	      else if (key.equals("4"))
