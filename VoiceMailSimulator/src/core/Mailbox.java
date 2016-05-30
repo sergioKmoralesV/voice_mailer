@@ -156,6 +156,7 @@ public class Mailbox
 	   return output;
    }
    public void deleteContact(Contact contactToDelete){
+	   conn.deleteContact(contactToDelete.getId());
 	   contacts.remove(contactToDelete);
    }
    

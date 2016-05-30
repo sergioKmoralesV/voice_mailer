@@ -221,6 +221,21 @@ public class DBConnector {
 			
 		}
 	}
+	
+	public void saveContact(int id, String first_name,String last_name, String phone){
+		Connection conn = null;
+		try{
+			conn = this.getConnection();
+			String updateString =
+			        "UPDATE Contact SET first_name = '" + first_name + "', "
+			        +"last_name = '"+ last_name +"', "
+			        +"phone_number = '"+ phone +"' "
+			        + "WHERE id = " + Integer.toString(id) +";"; 
+			this.executeUpdate(conn, updateString);
+		}catch (SQLException e){
+			
+		}
+	}
 
 	public void deleteMessage(int id) {
 		Connection conn = null;
@@ -234,6 +249,19 @@ public class DBConnector {
 			
 		}
 	}
+	
+	public void deleteContact(int id) {
+		Connection conn = null;
+		try{
+			conn = this.getConnection();
+			String updateString =
+			        "DELETE FROM Contact " 
+			        + "WHERE id = " + Integer.toString(id) +";"; 
+			this.executeUpdate(conn, updateString);
+		}catch (SQLException e){
+			
+		}
+	} 
 	
 	public int createContact(String first, String last, String number,int mailboxId ){
 		Connection conn = null;
