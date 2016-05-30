@@ -2,9 +2,9 @@
 
 Application designed in Java as a project at Software Architectures at Universidad Católica Boliviana "San Pablo".
 
-## IDE: 
+## IDE:
     Eclipse Mars1.0
 
-## Authors: 
+## Authors:
     Brandon Quiroga
     Sergio Morales
