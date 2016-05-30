@@ -1,27 +1,36 @@
+
 package core;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import db.DBConnector;
 
 /**
    A system of voice mail boxes.
 */
 public class MailSystem
 {
+	DBConnector conn;
    /**
       Constructs a mail system with a given number of mailboxes
       @param mailboxCount the number of mailboxes
+ * @throws SQLException 
    */
-   public MailSystem(int mailboxCount)
+   public MailSystem(int mailboxCount) 
    {
       mailboxes = new ArrayList<Mailbox>();
-
+      conn = new DBConnector();
       // Initialize mail boxes.
-
-      for (int i = 0; i < mailboxCount; i++)
+      mailboxes = conn.getMailboxes(mailboxCount);
+      if(mailboxes.isEmpty() || mailboxes.size() < mailboxCount)
       {
-         String passcode = "" + (i + 1);
-         String greeting = "You have reached mailbox " + (i + 1)
-               + ". \nPlease leave a message now.";
-         mailboxes.add(new Mailbox(passcode, greeting));
+    	  for (int i = mailboxes.size(); i < mailboxCount; i++)
+          {
+             String passcode = "" + (i + 1);
+             String greeting = "You have reached mailbox " + (i + 1)
+                   + ". \nPlease leave a message now.";
+        	 conn.createMailbox(i+1, passcode, greeting);
+             mailboxes.add(new Mailbox(passcode, greeting));
+          }  
       }
    }
 

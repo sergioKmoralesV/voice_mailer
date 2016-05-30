@@ -1,5 +1,6 @@
 package core;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import gui.GUITelephone;
@@ -12,7 +13,7 @@ import gui.UserInterface;
 */
 public class MailSystemTester
 {
-   public static void main(String[] args)
+   public static void main(String[] args) 
    {
 	      MailSystem system = new MailSystem(MAILBOX_COUNT);
 	      Scanner console = new Scanner(System.in);
@@ -26,5 +27,5 @@ public class MailSystemTester
 	      consola.run(c);
    }
 
-   private static final int MAILBOX_COUNT = 20;
+   private static final int MAILBOX_COUNT = 43;
 }
