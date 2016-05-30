@@ -1,9 +1,11 @@
 package core;
 
+
 public class Contact {
 	private String name;
 	private String lastname;
 	private String phone;
+	private int id;
 	
 	public Contact(String name, String lastname, String phone){
 		this.name = name;
@@ -34,5 +36,20 @@ public class Contact {
 	public void setNewTelephone(String phone)
 	{
 		this.phone = phone;
+	}
+	public String getName(){
+		return name;
+	}
+	public String getLastName(){
+		return lastname;
+	}
+	public String getPhoneNumber(){
+		return phone;
+	}
+	public int getId(){
+		return id;
+	}
+	public void setId(int dbId){
+		id = dbId;
 	}
 }

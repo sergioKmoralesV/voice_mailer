@@ -34,7 +34,7 @@ public class Mailbox
       keptMessages = new MessageQueue();
       newMessages.setQueue(conn.getMessages(aNumber, "NEW"));
       keptMessages.setQueue(conn.getMessages(aNumber, "SAVED"));
-  	  contacts = new ArrayList<Contact>();	   
+  	  contacts = conn.getContacts(aNumber);	   
    }
 
    /**
@@ -162,6 +162,8 @@ public class Mailbox
    public void addContact(Contact newContact)
    {
 	   contacts.add(newContact);
+	   int id = conn.createContact(newContact.getName(),newContact.getLastName(),newContact.getPhoneNumber(),number);
+	   newContact.setId(id);
    }
    
    public Contact getContactFromList(int index)

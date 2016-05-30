@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import core.Contact;
 import core.Mailbox;
 import core.Message;
 import core.MessageQueue;
@@ -232,5 +233,48 @@ public class DBConnector {
 		}catch (SQLException e){
 			
 		}
+	}
+	
+	public int createContact(String first, String last, String number,int mailboxId ){
+		Connection conn = null;
+		try{
+			conn = this.getConnection();
+			String createString =
+			        "INSERT INTO Contact (first_name, last_name, phone_number, mailbox_id) VALUES  ('" 
+			        			+ first +"', '"
+			        			+ last + "', '" 
+			        			+ number +"', " 
+			        			+ Integer.toString(mailboxId) +");"; 
+			this.executeUpdate(conn, createString);
+			String getLastId = "SELECT MAX(id) as id FROM Contact WHERE mailbox_id = "
+					+Integer.toString(mailboxId)+" LIMIT 1;";
+		ResultSet results = this.getRecords(getLastId);
+		results.next();
+		int lastId = results.getInt("id");
+		return lastId;
+		}catch (SQLException e){
+			return -1;
+		}
+	}
+	public ArrayList<Contact> getContacts(int mailboxNumber){
+		 try{ 
+				String sql = "SELECT * FROM Contact WHERE mailbox_id = " + Integer.toString(mailboxNumber) + ";";
+				ArrayList<Contact> contacts = new ArrayList<Contact>();
+				ResultSet results = this.getRecords(sql);
+				while(results.next()){
+			         //Retrieve by column name
+			         int id  = results.getInt("id");
+			         String first = results.getString("first_name");
+			         String last = results.getString("last_name");
+			         String phone = results.getString("phone_number");
+			         Contact newContact =new Contact(first,last,phone);
+			         newContact.setId(id);
+			         contacts.add(newContact);
+			      }
+			      results.close();
+			      return contacts;
+		     }catch(SQLException e){
+		    	 return new ArrayList<Contact>();
+		     }
 	}
 }
