@@ -20,21 +20,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table Contact
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `Contact`;
-
-CREATE TABLE `Contact` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(50) NOT NULL DEFAULT '',
-  `last_name` varchar(50) NOT NULL DEFAULT '',
-  `phone_number` varchar(50) NOT NULL DEFAULT '',
-  `mailbox_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `mailbox_contact_fk` (`mailbox_id`),
-  CONSTRAINT `mailbox_contact_fk` FOREIGN KEY (`mailbox_id`) REFERENCES `Mailbox` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -79,6 +64,21 @@ CREATE TABLE `Message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+# Dump of table Contact
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `Contact`;
+
+CREATE TABLE `Contact` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) NOT NULL DEFAULT '',
+  `last_name` varchar(50) NOT NULL DEFAULT '',
+  `phone_number` varchar(50) NOT NULL DEFAULT '',
+  `mailbox_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mailbox_contact_fk` (`mailbox_id`),
+  CONSTRAINT `mailbox_contact_fk` FOREIGN KEY (`mailbox_id`) REFERENCES `Mailbox` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
